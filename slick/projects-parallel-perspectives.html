@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Luftwerk - Parallel Perspectives</title>
+    <meta name="description" content="Andy Kauff Project Page">
+    <meta name="keywords" content="get out of here google">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <!-- START: header -->
+
+  <div class="probootstrap-loader"></div>
+
+  <header role="banner" class="probootstrap-header">
+    <div class="container">
+        <a href="index.html" class="probootstrap-logo">Andy Kauff</a>
+
+        <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          <ul class="probootstrap-main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <div class="extra-text visible-xs">
+            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+            <h5>Address</h5>
+            <p>THIS TEXT IS HARD TO READ</p>
+            <h5>Connect</h5>
+          </div>
+        </nav>
+    </div>
+  </header>
+  <!-- END: header -->
+
+  <div class="probootstrap-main">
+
+   <section class="probootstrap-section-half probootstrap-no-hover">
+      <div class="probootstrap-image" style="background-image: url(img/parallel-perspectives/project.jpg)"></div>
+      <div class="probootstrap-text">
+        <div class="probootstrap-inner">
+          <h1 class="heading">Parallel Perspectives</h1>
+            <h5>Luftwerk</h5>
+            <h5>Temporary Museum Piece</h5>
+          <h6>Concept</h6>
+            <p>This installation consisted of a handful of individual works presented as a show at the Elmhurst Art Museum. The visual concepts played with the Mies van der Rohe building it was installed in.</p>
+            <h6>My Role</h6>
+            <p>This project had a few elements that required a customizable simple lighting sequence that would run infinitely. Each area stood by itself, and we were trying to minimize the amount of cable present, and the complication of the install. I built some cheap and simple lighting controllers off of an Arduino platform that was easy to program once on site, it accomplished slow 16-bit color fades. The low cost of this project allowed us to deploy one controller in each room (total of 3) instead of attempting to deploy a central controller, which would have left an unsightly cabling mess. I completed the install of the controller and lighting fixtures, and provided assistance in building the lightboxes.</p>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
+          <div class="col-md-6">
+            <h2>Technical Details</h2>
+            <p>Each lighting controller was built on an Arduino Uno with a DMX I/O shield. I wrote a routine that would regulate timing and generate DMX frames. The code is called as repeated fade commands, taking an RGB color and a fade time as arguments, allowing us to quickly and easily modify sequences.</p>
+            <p>The light boxes in this project use 16-bit DMX drivers with baked in interpolation. This provided very smooth color fades, which was essential for an installation so heavily focused on color.</p>
+            </div>
+              <div class="col-md-6">
+              <h2>Credits</h2>
+            <p>Visual Design: Luftwerk <br> Technical Design: Andy Kauff <br> Photography: Peter Tsai <br> Hosted by: Elmhurst Art Museum</p>
+              </div>
+        </div>
+
+        <div class="row">
+            <h2>Images</h2>
+            <div class="gallery">
+                <div><img src="img/parallel-perspectives/1.JPG" class="img-responsive"></div>
+                <div><img src="img/parallel-perspectives/2.JPG" class="img-responsive"></div>
+                <div><img src="img/parallel-perspectives/3.JPG" class="img-responsive"></div>
+                <div><img src="img/parallel-perspectives/4.JPG" class="img-responsive"></div>
+                <div><img src="img/parallel-perspectives/5.JPG" class="img-responsive"></div>
+          </div>
+          </div>
+
+
+      </div>
+    </section>
+    <!-- END section -->
+      <section class="probootstrap-section">
+          <div class="container">
+          <h1>Links</h1>
+          <p><a href="https://www.elmhurstartmuseum.org/exhibitions/luftwerk-parallel-perspectives">Elmhurst Art Museum Page</a> </p>
+          </div>
+      </section>
+  </div>
+
+  <footer class="probootstrap-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Connect</a>. All Rights Reserved. <br> Web Template Designed &amp; Developed by <a href="https://uicookies.com">uiCookies</a> </a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+  </div>
+
+
+  <script src="js/scripts.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.gallery').slick({
+        dots: true,
+        adaptiveHeight: true,
+        arrows: true
+      });
+    });
+  </script>
+
+  </body>
+</html>

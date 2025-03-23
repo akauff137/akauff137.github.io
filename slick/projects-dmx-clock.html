@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lookingglass - DMX Clock</title>
+    <meta name="description" content="Andy Kauff Project Page">
+    <meta name="keywords" content="get out of here google">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <!-- START: header -->
+
+  <div class="probootstrap-loader"></div>
+
+  <header role="banner" class="probootstrap-header">
+    <div class="container">
+        <a href="index.html" class="probootstrap-logo">Andy Kauff</a>
+
+        <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          <ul class="probootstrap-main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <div class="extra-text visible-xs">
+            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+            <h5>Address</h5>
+            <p>THIS TEXT IS HARD TO READ</p>
+            <h5>Connect</h5>
+          </div>
+        </nav>
+    </div>
+  </header>
+  <!-- END: header -->
+
+  <div class="probootstrap-main">
+
+   <section class="probootstrap-section-half probootstrap-no-hover">
+      <div class="probootstrap-image" style="background-image: url(img/dmx-clock/project-page.jpg)"></div>
+      <div class="probootstrap-text">
+        <div class="probootstrap-inner">
+          <h1 class="heading">DMX Clock</h1>
+            <h4>Lookingglass Theater</h4>
+            <h5>Theatrical Prop</h5>
+          <h5><br>Concept:</h5>
+            <p>For their production of Act(s) of God, Lookingglass required an analog clock face that could have its time set wirelessly from a lighting console.</p>
+            <h5>My Role</h5>
+            <p>Lookingglass provided the clock, and access to some of their equipment, it was up to me to accomplish the rest.</p>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
+          <div class="col-md-6">
+            <h2>Technical Design</h2>
+            <p>The clock recieves its control signal with an RC4 wireless dimmer. The clock arms are moved with a stepper motor coupled to the winding mechanism of the clock. A microprocessor sits in between the DMX reciever and the motor in order to count steps and do some basic decision-making regarding the clock's direction.</p>
+            <p>The above setup allows for the clock's position to be described with a 16-bit value, set at the lighting console. The only thing that remains after that is writing a custom fixture profile in the console and to provide the design team some pre-built effects that allow the clock to move forward in real time, effectively allowing the clock to act as a clock when desired, but to also specify a time on the clock face during scene transitions.</p>
+            <p>To drive the clock winding mechanism, I drew up a 3d printed dive shaft that fit in a standard motor coupler on one end, and slotted into the clock winding mechanism on the other.</p>
+          </div>
+          <div class="col-md-6">
+            <h2>Challenges</h2>
+            <p>After doing some research, I discovered that reliably capturing DMX packets on a single-core microprocessor is often met with failure. Bearing that in mind, along with an assessment of the equipment already owned by the theater, I decided to use a DMX reciever with a servo output profile. The servo dimming curve made sense for this application, and I could use the pulseIn() function native to the arduino platform to capture the servo data and convert it into one 8bit value per channel. As an added bonus, the DMX reciever owned by the theater was wireless, a fortunate quality as the clock was struck during a scene transition every night, and limiting the wiring connections in the back of the prop was very helpful to the crew.</p>
+            <p>One requirement of the project was that the clock could not engage in "Unclock-like behavior", more or less meaining that it could not move backward in view of the audience. However, for programming and calibrating the device, backward movement was more or less a must. For that reason, I created a 'Tolerance' value, allowing the clock to move backward if the DMX set position was 30 minutes behind the real position on the clock face. Any more than that and the clock rotated forward instead, achieving its set time by moving past midnight.</p>
+            <p>The stepper motor used allowed the clock both continuous rotation, and precise positioning; something that a servo would not give me. However, the motor was not able to track its own position, the processor was responsible for that, meaning that when the processor was shut down, positioning data was lost. To alleviate that issue, I wired in a 'homing' button. During the preshow checks, the lighting staff set the clock to midnight and pressed the homing button, allowing the clock to find its position.</p>
+          </div>
+        </div>
+
+        <div class="row">
+            <h2>Images</h2>
+            <div class="gallery">
+                <center><div><img src="img/dmx-clock/1.gif" class="img-responsive" hieght="1000" width="560"></div></center>
+                <div><img src="img/dmx-clock/2.jpg" class="img-responsive"></div>
+                <div><img src="img/dmx-clock/3.png" class="img-responsive"></div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- END section -->
+      <section class="probootstrap-section">
+          <div class="container">
+          <h1>Links</h1>
+          <p><a href="https://lookingglasstheatre.org/event/acts-of-god/">Lookingglass Show Page</a> <br> <a href="https://github.com/Kriegbaum/DMX-Clock">Code Repository</a> </p>
+          </div>
+      </section>
+  </div>
+
+  <footer class="probootstrap-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Connect</a>. All Rights Reserved. <br> Web Template Designed &amp; Developed by <a href="https://uicookies.com">uiCookies</a> </a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+  </div>
+
+
+  <script src="js/scripts.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.gallery').slick({
+        dots: true,
+        adaptiveHeight: true,
+        arrows: true
+      });
+    });
+  </script>
+
+  </body>
+</html>

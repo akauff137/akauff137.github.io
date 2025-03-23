@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Luftwerk - Geometry of Light</title>
+    <meta name="description" content="Andy Kauff Project Page">
+    <meta name="keywords" content="get out of here google">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <!-- START: header -->
+
+  <div class="probootstrap-loader"></div>
+
+  <header role="banner" class="probootstrap-header">
+    <div class="container">
+        <a href="index.html" class="probootstrap-logo">Andy Kauff</a>
+
+        <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          <ul class="probootstrap-main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <div class="extra-text visible-xs">
+            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+            <h5>Address</h5>
+            <p>THIS TEXT IS HARD TO READ</p>
+            <h5>Connect</h5>
+          </div>
+        </nav>
+    </div>
+  </header>
+  <!-- END: header -->
+
+  <div class="probootstrap-main">
+
+   <section class="probootstrap-section-half probootstrap-no-hover">
+      <div class="probootstrap-image" style="background-image: url(img/geometry-of-light/project-page.PNG)"></div>
+      <div class="probootstrap-text">
+        <div class="probootstrap-inner">
+          <h1 class="heading">Geometry of Light</h1>
+            <h4>Client: Luftwerk</h4>
+            <h5>Temporary Installation</h5>
+            <p>Luftwerk's recent project at Mies van der Rohe's historic Barcelona
+              Pavilion presented the opportunity to dive into a complicated wireless
+              control project that would take me overseas.</p>
+
+            <p>Luftwerk had chosen a battery of laser levels as their medium for
+              this installation, and they needed someone to figure out how to take
+              control of these devices, and orchestrate them to follow a complex
+              synchronous pattern. The entire installation needed to operate wirelessly,
+              as the Barcelone Pavilion's open plan offered few places to conceal
+              cables. It was also important to provide clear technical documentation
+              for pavilion staff, who would be setting up and dismantling equipment
+              nightly for the duration of the project.</p>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
+        <h2>Technical Design</h2>
+          <div class="col-md-6">
+            <p><b>Hijacking BLE Protocols</b> <br>
+              The contracting lasers could be controlled via a smartphone app, but
+              it was not capable of precise timing or distributed control. With the
+              help of a <a href="https://www.aagallag.com">friend</a>, we reverse
+              engineered the bluetooth communication protocol used by the lasers.
+              After that, it was easy to take control of each device from an arbitrary
+              bluetooth source.</p>
+
+            <p> <b>Working around the limitations of BLE</b> <br>
+              The bluetooth low energy control platform was not capable of covering
+              the distance that I needed it to. I added a secondary network of
+              transponders built on battery powered
+              <a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/">Rasperry Pi Zeroes</a>
+              to increase the effective broadcast range of the control signal.
+              Commands would be routed from the primary controller to the secondary
+              controllers over wifi, and then the final leg of the journey would
+              happen over a very short distance using BLE.</p>
+          </div>
+
+          <div class="col-md-6">
+            <p><b>Remote Support and Monitoring</b> <br>
+              Geometry of Light was nearly all custom software and hardware, but
+              I wasn't available to provide onsite support once it opened. To be
+              able to quickly resolve any future issues with the installation,
+              I created an SSH tunnel out of the primary controller, through the
+              pavilion's wifi that allowed me remote access to the site in case
+              support was required once I had left.</p>
+
+            <p><b>Synchronizing with the Work of other Artists</b> <br>
+              Geometry of Light featured a musical composition created for the
+              installation, but we had just a brief window to coordinate the music
+              once onsite. I was able to integrate the composer's playback computer
+              with my network, and used <a href="https://figure53.com/qlab/">Qlab</a>
+              to keep the light show and music in step with one another.</p>
+
+            <p><b>Centralized Control</b> <br>
+              I designed the project to have a centralized brain located in the
+              basement, which propagated control signals out to the lasers via a
+              small network setup. A trigger button allowed the pavilion staff to
+              easily start up the installation at its opening hours.</p>
+          </div>
+        </div>
+
+          <div class="row"></div>
+          <h1>Video</h1>
+          <center><iframe src="https://player.vimeo.com/video/325222671"
+                          width="916"
+                          height="515"
+                          frameborder="0"
+                          webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                  </iframe>
+              <p><a href="https://vimeo.com/325222671">
+                Geometry of Light, Luftwerk &amp; Iker Gil</a>
+                from <a href="https://vimeo.com/spiritofspace">Spirit of Space</a>
+                on <a href="https://vimeo.com">Vimeo</a>.
+              </p></center>
+
+        <div class="row">
+            <h2>Images</h2>
+            <div class="gallery">
+                <div><img src="img/geometry-of-light/1.jpg" class="img-responsive"></div>
+                <div><img src="img/geometry-of-light/2.JPG" class="img-responsive"></div>
+                <div><img src="img/geometry-of-light/3.JPG" class="img-responsive"></div>
+                <div><img src="img/geometry-of-light/4.gif" class="img-responsive" height="1000" width="1600"></div>
+                <div><img src="img/geometry-of-light/5.JPG" class="img-responsive"></div>
+                <div><img src="img/geometry-of-light/6.jpg" class="img-responsive"></div>
+          </div>
+          </div>
+        </div>
+        <div class="container">
+            <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
+                <div class="col-md-6">
+                    <h2>Project Team</h2>
+                    <p>Visual Design: Luftwerk and Iker Gil <br>
+                    Technical Design: Andy Kauff <br>
+                    Programming Support: Aaron Gallagher <br>
+                    Composition: Oriol Tarragó <br>
+                    Photography: Kate Joyce and RedMike Marianek <br>
+                    <br> Supported by: <br>
+                    The Graham Foundation <br>
+                    MAS Context <br>
+                    Bosch Tools <br>
+                    Spirit of Space</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Tech Elements</h2>
+                    <ul>
+                    <li>Bosch Contracting Lasers</li>
+                    <li>Raspberry Pi</li>
+                    <li>Qlab 4</li>
+                    <li>Python 3</li>
+                    <li>Ubiquiti Networking Gear</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+          <div class="container">
+          <h1>Links</h1>
+          <p><a href="http://www.mascontext.com/events/mas-context-spring-talks-2019/geometry-of-light-barcelona-pavilion/">MAS Context Page</a> <br> <a href="https://miesbcn.com/calendar/geometry-of-light-by-luftwerk-iker-gil/">Mies Foundation Page</a> <br> <a href="http://luftwerk.net/projects/geometry-of-light/">Luftwerk Project Page</a> <br> <a href="https://spiritofspace.com/GEOMETRY">Spirit of Space Page</a></p>
+          </div>
+      </section>
+  </div>
+
+  <footer class="probootstrap-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Connect</a>. All Rights Reserved. <br> Web Template Designed &amp; Developed by <a href="https://uicookies.com">uiCookies</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+  </div>
+
+
+  <script src="js/scripts.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.gallery').slick({
+        dots: true,
+        adaptiveHeight: true,
+        arrows: true
+      });
+    });
+  </script>
+
+  </body>
+</html>

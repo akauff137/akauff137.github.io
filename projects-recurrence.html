@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Luftwerk - Recurrence</title>
+    <meta name="description" content="Andy Kauff Project Page">
+    <meta name="keywords" content="get out of here google">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <!-- START: header -->
+
+  <div class="probootstrap-loader"></div>
+
+  <header role="banner" class="probootstrap-header">
+    <div class="container">
+        <a href="index.html" class="probootstrap-logo">Andy Kauff</a>
+
+        <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          <ul class="probootstrap-main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <div class="extra-text visible-xs">
+            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+            <h5>Address</h5>
+            <p>THIS TEXT IS HARD TO READ</p>
+            <h5>Connect</h5>
+          </div>
+        </nav>
+    </div>
+  </header>
+  <!-- END: header -->
+
+  <div class="probootstrap-main">
+
+   <section class="probootstrap-section-half probootstrap-no-hover">
+      <div class="probootstrap-image" style="background-image: url(img/recurrence/project-page.jpg)"></div>
+      <div class="probootstrap-text">
+        <div class="probootstrap-inner">
+          <h1 class="heading">Recurrence</h1>
+            <h4>Luftwerk</h4>
+            <h5>Permanent Indoor Installation</h5>
+          <h5><br>Concept:</h5>
+            <p>This installation is in the main entrance of the Tampa Convention Center. 
+	    The wave patterns and the animations reflect the tidal patterns of the Bay outside. 
+	    The slow calming patterns offer a contrast to the busy activity of the Convention Center below.</p>
+            <h5>My Role</h5>
+            <p>I wrote the software that drives this installation and selected
+               the equipment to run it, as well as drafting the wiring layout</p>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
+          <div class="col-md-6">
+            <h2>Technical Design</h2>
+	    <p>This project runs on a Pharos Lighting Playback controller. Each LED bar has a DMX LED driver attached to it. Each light bar has its own control channel.</p>
+	    <p>The primary challenges of this installation were in the planning stage, as there was very little room in the sculpture to hide wiring, and everything was installed on scaffolding working around the busy schedule of the convention center, making return trips to service lights on the public facing side of the wall difficult. Extensive planning was done to ensure there were no delays on site during the installation process</p>
+          </div>
+          <div class="col-md-6">
+            <h2>Credits</h2>
+            <p>Visual Design: Luftwerk <br> Technical Design: Vector (Fabrication) Andy Kauff (Electrical) <br> Commissioned by: The City of Tampa</p>
+          </div>
+        </div>
+
+        <div class="row">
+            <h2>Images</h2>
+            <div class="gallery">
+                <div><img src="img/recurrence/1.jpg" class="img-responsive"></div>
+                <div><img src="img/recurrence/2.jpg" class="img-responsive"></div>
+                <div><img src="img/recurrence/3.jpg" class="img-responsive"></div>
+                <div><img src="img/recurrence/4.jpg" class="img-responsive"></div>
+          </div>
+          </div>
+        </div>
+      </section>
+  </div>
+
+  <footer class="probootstrap-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Connect</a>. All Rights Reserved. <br> Web Template Designed &amp; Developed by <a href="https://uicookies.com">uiCookies</a> </a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+  </div>
+
+
+  <script src="js/scripts.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.gallery').slick({
+        dots: true,
+        adaptiveHeight: true,
+        arrows: true
+      });
+    });
+  </script>
+
+  </body>
+</html>

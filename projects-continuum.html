@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Luftwerk - Continuum</title>
+    <meta name="description" content="Andy Kauff Project Page">
+    <meta name="keywords" content="get out of here google">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <!-- START: header -->
+
+  <div class="probootstrap-loader"></div>
+
+  <header role="banner" class="probootstrap-header">
+    <div class="container">
+        <a href="index.html" class="probootstrap-logo">Andy Kauff</a>
+
+        <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          <ul class="probootstrap-main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <div class="extra-text visible-xs">
+            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+            <h5>Address</h5>
+            <p>THIS TEXT IS HARD TO READ</p>
+            <h5>Connect</h5>
+          </div>
+        </nav>
+    </div>
+  </header>
+  <!-- END: header -->
+
+  <div class="probootstrap-main">
+
+   <section class="probootstrap-section-half probootstrap-no-hover">
+      <div class="probootstrap-image" style="background-image: url(img/continuum/project-page.jpg)"></div>
+      <div class="probootstrap-text">
+        <div class="probootstrap-inner">
+          <h1 class="heading">Continuum</h1>
+            <h4>Client: Luftwerk</h4>
+            <h5>Museum Installation</h5>
+            <p>This project is a kinetic sculpture with 55 spinning discs.
+               Each disc has individual speed and direction control. They move
+               in a repeated sequence, cascading left to right by color group,
+               speed up, come to a stop, and then move in the opposite direction.</p>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
+        <h2>Technical Design</h2>
+          <div class="col-md-6">
+            <p><b>Top Level Architecture</b> <br>
+              This project had far too many IO neeeds to be driven off of one controller.
+              One of my priorities with this project was to give the most granular control
+              possible to the array without making the control logic unmanagably compelx.
+              I settled on making two types of controllers that ran entirely different firmware.
+              The primary controller was responsible for containing the organizaitonal structure
+              of the array, and carrying out the animation sequence. The secondary controller
+              was responsible for powering the motors, and doing all of the motion control
+              processing.
+            </p>
+            <p><b>Primary Controllers</b> <br>
+              The primary controllers were built on the Raspberry Pi Pico. There were 3
+              additional pieces of hardware on that board, a buck converter to allow it
+              to operate on the 6v supply for the motors, an RS485 Comms circuit, and
+              an external hardware watchdog to guard against any long-running memory
+              related crashes
+            </p>
+            <p><b>Mechanical Elements</b> <br>
+              Being fairly light, these discs were driven by 130 size DC motors at 6v.
+              This wound up providing ample torque, and we only needed about 15% of the
+              power they could deliver. These were mounted to the wall with L brackets
+              and vibration dampening material. JST cables were terminated onto the
+              motor, and soldered to the secondary controllers to allow for quick connect-disconnect.
+          </div>
+          <div class="col-md-6">
+            <p><b>Motion Control</b> <br>
+              The primary motion control loop resembles a rendering engine, tracking
+              the current speed of all the motors, and moving those speeds to new targets
+              set by the primary controller over given intervals of time. There is a fair
+              amount of conditional control for situations where motors were spinning up
+              from a standstill and needed extra power to break a stall, as well as decelerating
+              faster than the natural decay rate from simply cutting power. Without encoders
+              to deliver me positional data, a lot of these algorithms were made from trial and
+              error, and were specific to the mechanical properties of the discs.
+            </p>
+            <p><b>Secondary Controllers</b> <br>
+              The secondary controllers were much more complicated than the primaries. These
+              featured 7 dual-channel motor drivers, allowing them to drive 14 motors at a time
+              with individual speed and direction control. These boards were built with the Teensy
+              4.1 as the processor. These boards also featured an RS485 Rx circuit for receiving
+              controls from the primary controller, and an external hardware watchdog that would
+              reboot the device if the firmware ever crashed. These boards also featured rotary
+              address switches, and inverse polarity protection.
+            </p>
+          </div>
+        </div>
+
+        <div class="row"></div>
+        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/712424134?h=7911bc30e8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="VID_20220503_105606151.mp4"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+        <div class="row">
+            <h2>Images</h2>
+            <div class="gallery">
+                <div><img src="img/continuum/1.jpg" class="img-responsive"></div>
+                <div><img src="img/continuum/2.jpg" class="img-responsive"></div>
+                <div><img src="img/continuum/3.jpg" class="img-responsive"></div>
+                <div><img src="img/continuum/4.jpg" class="img-responsive"></div>
+                <div><img src="img/continuum/5.png" class="img-responsive"></div>
+                <div><img src="img/continuum/6.jpg" class="img-responsive"></div>
+          </div>
+          </div>
+        </div>
+        <div class="container">
+            <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
+                <div class="col-md-6">
+                    <h2>Project Team</h2>
+                    <p>Visual Design: Petra Bachmaier and Sean Gallero <br>
+                    Technical Design: Andy Kauff <br>
+                    Photography: Kate Joyce<br>
+                    <br> Supported by: <br>
+                    Cheekwood Estate and Gardens<br>
+                </div>
+                <div class="col-md-6">
+                    <h2>Tech Elements</h2>
+                    <ul>
+                    <li>Custom Designed and Hand Soldered PCBs</li>
+                    <li>Teensy 4.1</li>
+                    <li>Raspberry Pi Pico</li>
+                    <li>RS485 Communications</li>
+                    <li>Custom Serial Protocol</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+          <div class="container">
+          <h1>Links</h1>
+          <p><a href="https://cheekwood.org/calendar/colorscapes/">Cheekwood Page</a> <br>
+             <a href="http://luftwerk.net/news/">Luftwerk</a><p>
+          </div>
+      </section>
+  </div>
+
+  <footer class="probootstrap-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Connect</a>. All Rights Reserved. <br> Web Template Designed &amp; Developed by <a href="https://uicookies.com">uiCookies</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+  </div>
+
+
+  <script src="js/scripts.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.gallery').slick({
+        dots: true,
+        adaptiveHeight: true,
+        arrows: true
+      });
+    });
+  </script>
+
+  </body>
+</html>
